@@ -1,0 +1,36 @@
+
+<script>
+$(document).ready(function(){
+$('.add_fields').click(function(){
+$('.cr1').show()
+})
+});
+</script>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @todo_list.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @todo_list.description %>
+</p>
+
+<p>
+<p><b><u> Items:</u> </b></p>
+
+<% if !@todo_list.items.blank? %>
+<% @todo_list.items.each do |item| %>
+<%= item.name %><br/>
+<% end %>
+<% else %>
+<p> No items to display </p>
+<% end %>
+
+</p>
+
+<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
+<%= link_to 'Back', todo_lists_path %>
+

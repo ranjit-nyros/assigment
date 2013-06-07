@@ -1,0 +1,30 @@
+<%= link_to "Home" ,todo_lists_path %>
+<h2><u>Listing items</u></h2>
+<% if !@items.blank? %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Checked</th>
+    <th>Todo list</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.name %></td>
+    <td><%= item.checked %></td>
+    <td><%= item.todo_list_id %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<% else %>
+
+<p style="color:red;"> No items to display </p>
+<% end %>
+<br />
